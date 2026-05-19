@@ -21,6 +21,7 @@ import com.jnetaol.tidydroid.ui.components.*
 import com.jnetaol.tidydroid.ui.screens.AppViewModel
 import com.jnetaol.tidydroid.ui.theme.*
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CleanerScreen(
     viewModel: AppViewModel,

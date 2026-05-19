@@ -101,12 +101,13 @@ fun SettingsScreen(
                         GlowButton(
                             "Check For Updates",
                             Icons.Default.SystemUpdateAlt,
+                            onClick = {
+                                val intent = Intent(Intent.ACTION_VIEW, android.net.Uri.parse(viewModel.githubReleasesUrl))
+                                context.startActivity(intent)
+                            },
                             glowColor = TDSecondary,
                             modifier = Modifier.fillMaxWidth()
-                        ) {
-                            val intent = Intent(Intent.ACTION_VIEW, android.net.Uri.parse(viewModel.githubReleasesUrl))
-                            context.startActivity(intent)
-                        }
+                        )
                     }
                 }
             }
@@ -120,25 +121,27 @@ fun SettingsScreen(
                             GlowButton(
                                 "Share App",
                                 Icons.Default.Share,
+                                onClick = {
+                                    val sendIntent = Intent(Intent.ACTION_SEND).apply {
+                                        type = "text/plain"
+                                        putExtra(Intent.EXTRA_SUBJECT, "TidyDroid - Smart Download Organiser")
+                                        putExtra(Intent.EXTRA_TEXT, viewModel.shareText)
+                                    }
+                                    context.startActivity(Intent.createChooser(sendIntent, "Share TidyDroid"))
+                                },
                                 glowColor = TDPrimary,
                                 modifier = Modifier.weight(1f)
-                            ) {
-                                val sendIntent = Intent(Intent.ACTION_SEND).apply {
-                                    type = "text/plain"
-                                    putExtra(Intent.EXTRA_SUBJECT, "TidyDroid - Smart Download Organiser")
-                                    putExtra(Intent.EXTRA_TEXT, viewModel.shareText)
-                                }
-                                context.startActivity(Intent.createChooser(sendIntent, "Share TidyDroid"))
-                            }
+                            )
                             GlowButton(
                                 "Copy Link",
                                 Icons.Default.ContentCopy,
+                                onClick = {
+                                    clipboardManager.setText(AnnotatedString(viewModel.githubReleasesUrl))
+                                    viewModel.showToast("Link copied!")
+                                },
                                 glowColor = TDSecondary,
                                 modifier = Modifier.weight(1f)
-                            ) {
-                                clipboardManager.setText(AnnotatedString(viewModel.githubReleasesUrl))
-                                viewModel.showToast("Link copied!")
-                            }
+                            )
                         }
                     }
                 }
@@ -166,9 +169,7 @@ fun SettingsScreen(
                         Spacer(Modifier.height(12.dp))
                         Text("Clear all scan history, duplicate results, and large file lists. This does not delete actual files from your device.", color = TDTextSecondary, fontSize = 12.sp)
                         Spacer(Modifier.height(12.dp))
-                        GlowButton("Clear All Data", Icons.Default.DeleteSweep, glowColor = TDError, modifier = Modifier.fillMaxWidth()) {
-                            viewModel.clearAllData()
-                        }
+                        GlowButton("Clear All Data", Icons.Default.DeleteSweep, onClick = { viewModel.clearAllData() }, glowColor = TDError, modifier = Modifier.fillMaxWidth())
                     }
                 }
             }
