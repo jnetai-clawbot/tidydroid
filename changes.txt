@@ -1,0 +1,24 @@
+TidyDroid v1.0.0 - Initial Release
+
+Changes:
+- Created complete TidyDroid Android app project
+- Implemented automatic Downloads folder organization into categories (Videos, APKs, Music, Documents, ZIPs, Images, Other)
+- Built custom sorting rules engine with regex pattern matching
+- Added duplicate file finder using size + MD5 hash comparison
+- Added large file cleaner with configurable minimum size (10MB-1GB)
+- Created scan history with per-category statistics stored in Room database
+- Designed dark Material Design 3 theme with purple/cyan neon glow effects (matching project style)
+- Created debug logging system (DebugLogger) following established pattern with error codes (TD-xxx)
+- Added HomeScreen with organize button, quick stats, recent scans list
+- Added RulesScreen with add, edit, delete, enable/disable toggle for custom sorting rules
+- Added DuplicatesScreen with grouped duplicate display, individual/group delete
+- Added CleanerScreen with size filter chips and large file deletion
+- Added SettingsScreen with About (Made By jnetaol.com), version display, Check For Updates, Share, data management
+- Created MainActivity with scaffold-based navigation between 5 screens
+- Set up GitHub Actions: build-debug.yml (push), build-release.yml (tags/manual)
+- Release APK copied to apk/ folder as TidyDroid-vX.X.X.apk
+- Keystore alias: tidydroid
+- Project uses Gradle Kotlin DSL, Compose UI, Kotlin 1.9.22, AGP 8.2.2
+- MinSdk 29, TargetSdk 34, compileSdk 34, ARM64 only
+- Added adaptive icon, proper strings/themes/colors XML resources with purple primary
+- Added README.md, LICENSE, CHANGELOG.md
