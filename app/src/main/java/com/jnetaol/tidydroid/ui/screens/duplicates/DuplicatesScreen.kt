@@ -52,8 +52,9 @@ fun DuplicatesScreen(
                 GlowButton(
                     if (isScanning) "Scanning\u2026" else "Scan",
                     Icons.Default.Search, glowColor = TDNeonOrange,
-                    enabled = !isScanning
-                ) { viewModel.scanDuplicates() }
+                    enabled = !isScanning,
+                    onClick = { viewModel.scanDuplicates() }
+                )
             }
             if (isScanning) {
                 LinearProgressIndicator(Modifier.fillMaxWidth().height(3.dp).padding(bottom = 8.dp), color = TDNeonOrange, trackColor = TDSurfaceVariant)
@@ -134,7 +135,7 @@ fun DuplicateGroupCard(
                 }
             }
             Spacer(Modifier.height(4.dp))
-            GlowButton("Delete All Copies", Icons.Default.DeleteSweep, glowColor = TDError, modifier = Modifier.fillMaxWidth().height(36.dp)) { showDeleteAll = true }
+            GlowButton("Delete All Copies", Icons.Default.DeleteSweep, glowColor = TDError, modifier = Modifier.fillMaxWidth().height(36.dp), onClick = { showDeleteAll = true })
 
             if (showDeleteAll) {
                 AlertDialog(

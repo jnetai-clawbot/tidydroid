@@ -19,6 +19,7 @@ import androidx.compose.ui.unit.sp
 import com.jnetaol.tidydroid.data.model.SortRule
 import com.jnetaol.tidydroid.ui.components.*
 import com.jnetaol.tidydroid.ui.screens.AppViewModel
+import androidx.compose.ui.draw.alpha
 import com.jnetaol.tidydroid.ui.theme.*
 
 private val categories = listOf("Videos", "APKs", "Music", "Documents", "ZIPs", "Images", "Other")
@@ -37,7 +38,7 @@ fun RulesScreen(
             verticalAlignment = Alignment.CenterVertically) {
             IconButton(onBack) { Icon(Icons.Default.ArrowBack, null, tint = TDTextPrimary) }
             Text("Sorting Rules", color = TDTextPrimary, fontSize = 20.sp, fontWeight = FontWeight.Bold, modifier = Modifier.weight(1f))
-            GlowButton("Add", Icons.Default.Add, glowColor = TDPrimary, modifier = Modifier.height(44.dp)) { showAddDialog = true }
+            GlowButton("Add", Icons.Default.Add, glowColor = TDPrimary, modifier = Modifier.height(44.dp), onClick = { showAddDialog = true })
         }
 
         if (rules.isEmpty()) {
@@ -112,7 +113,7 @@ fun RuleCard(
                 Icon(Icons.Default.Edit, null, tint = TDTextMuted, modifier = Modifier.size(18.dp))
             }
             IconButton({ showDelete = true }, Modifier.size(36.dp)) {
-                Icon(Icons.Default.Delete, null, tint = TDTError, modifier = Modifier.size(18.dp))
+                Icon(Icons.Default.Delete, null, tint = TDError, modifier = Modifier.size(18.dp))
             }
         }
     }
@@ -181,9 +182,9 @@ fun RuleDialog(
             }
         },
         confirmButton = {
-            GlowButton("Save", Icons.Default.Save, glowColor = TDPrimary, enabled = pattern.isNotBlank()) {
+            GlowButton("Save", Icons.Default.Save, glowColor = TDPrimary, enabled = pattern.isNotBlank(), onClick = {
                 onSave(pattern, selectedCategory)
-            }
+            })
         },
         dismissButton = { TextButton(onDismiss) { Text("Cancel", color = TDTextMuted) } },
         containerColor = TDSurface

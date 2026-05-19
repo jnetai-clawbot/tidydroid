@@ -74,7 +74,7 @@ fun HomeScreen(
                                 Text("TidyDroid needs file management access to organize your downloads.", color = TDTextSecondary, fontSize = 12.sp)
                             }
                             Spacer(Modifier.width(12.dp))
-                            GlowButton("Grant", Icons.Default.LockOpen, glowColor = TDWarning, enabled = true) {
+                            GlowButton("Grant", Icons.Default.LockOpen, glowColor = TDWarning, enabled = true, onClick = {
                                 try {
                                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
                                         val intent = Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION)
@@ -85,7 +85,7 @@ fun HomeScreen(
                                     val intent = Intent(Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION)
                                     context.startActivity(intent)
                                 }
-                            }
+                            })
                         }
                     }
                 }
@@ -99,8 +99,9 @@ fun HomeScreen(
                             if (isScanning) Icons.Default.HourglassTop else Icons.Default.AutoAwesome,
                             glowColor = TDPrimary,
                             modifier = Modifier.fillMaxWidth(),
-                            enabled = !isScanning
-                        ) { viewModel.organizeNow() }
+                            enabled = !isScanning,
+                            onClick = { viewModel.organizeNow() }
+                        )
                         if (isScanning) {
                             Spacer(Modifier.height(8.dp))
                             LinearProgressIndicator(

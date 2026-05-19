@@ -69,8 +69,9 @@ fun CleanerScreen(
                             GlowButton(
                                 if (isScanning) "Scanning\u2026" else "Scan",
                                 Icons.Default.Search, glowColor = TDNeonRed,
-                                enabled = !isScanning
-                            ) { viewModel.scanLargeFiles(minSizeMB) }
+                                enabled = !isScanning,
+                                onClick = { viewModel.scanLargeFiles(minSizeMB) }
+                            )
                         }
                     }
                     if (isScanning) {
