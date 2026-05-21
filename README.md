@@ -43,4 +43,4 @@ MIT License - see [LICENSE](LICENSE)
 
 ---
 
-**Made By [jnetaol.com](https://jnetaol.com)**
+**Made By [jnetai.com](https://jnetai.com)**

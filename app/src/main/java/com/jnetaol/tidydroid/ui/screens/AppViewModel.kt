@@ -347,9 +347,9 @@ class AppViewModel(application: Application) : AndroidViewModel(application) {
             "largeSize" to formatSize(_largeFilesTotalSize.value)
         )
 
-    val appVersion: String get() = "1.0.0"
+    val appVersion: String get() = "1.0.1"
     val githubReleasesUrl: String get() = "https://github.com/jnetaol/TidyDroid/releases"
-    val aboutUrl: String get() = "https://jnetaol.com"
+    val aboutUrl: String get() = "https://jnetai.com"
     val shareText: String get() = "Organize your downloads automatically with TidyDroid - Smart Download Organiser. Sort files by category, find duplicates, clean large files, and customize with rules.\n\nDownload: $githubReleasesUrl"
 
     override fun onCleared() {

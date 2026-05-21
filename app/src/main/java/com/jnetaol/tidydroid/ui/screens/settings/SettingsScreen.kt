@@ -65,7 +65,7 @@ fun SettingsScreen(
                         Spacer(Modifier.height(12.dp))
                         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
                             Text("Made By ", color = TDTextSecondary, fontSize = 14.sp)
-                            Text("jnetaol.com", color = TDPrimary, fontSize = 14.sp, fontWeight = FontWeight.Bold)
+                            Text("jnetai.com", color = TDPrimary, fontSize = 14.sp, fontWeight = FontWeight.Bold)
                         }
                         Spacer(Modifier.height(4.dp))
                         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center, verticalAlignment = Alignment.CenterVertically) {
@@ -181,7 +181,7 @@ fun SettingsScreen(
                         Spacer(Modifier.height(8.dp))
                         Text("MIT License", color = TDTextSecondary, fontSize = 13.sp)
                         Spacer(Modifier.height(4.dp))
-                        Text("Copyright (c) 2024 jnetaol.com", color = TDTextMuted, fontSize = 12.sp)
+                        Text("Copyright (c) 2024 jnetai.com", color = TDTextMuted, fontSize = 12.sp)
                         Spacer(Modifier.height(8.dp))
                         Text(
                             "This software is provided \"as-is\" without warranty. Use responsibly and review files before deletion.",
